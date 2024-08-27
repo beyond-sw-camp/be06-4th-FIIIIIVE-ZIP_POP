@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: senagae-be-deployment-test
+spec:
+  selector:
+    matchLabels:
+      type: backend
+      ver: test
+      deployment: blue
+  replicas: 4
+  strategy:
+    type: RollingUpdate
+  minReadySeconds: 10
+  template:
+    metadata:
+      labels:
+        type: backend
+        ver: test
+        deployment: blue
+    spec:
+      containers:
+        - name: senagae-be-test
+          image: senagae/backend:latest
+          readinessProbe:
+            httpGet:
+              path: /test
+              port: 8080
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            successThreshold: 4
+          livenessProbe:
+            httpGet:
+              path: /test
+              port: 8080
+            initialDelaySeconds: 20
+            periodSeconds: 10
+      terminationGracePeriodSeconds: 0
