@@ -1,13 +1,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: senagae-be-deployment-test
+  name: senagae-be-deployment-color
 spec:
   selector:
     matchLabels:
       type: backend
-      ver: test
-      deployment: blue
+      ver: latest
+      deployment: color
   replicas: 4
   strategy:
     type: RollingUpdate
@@ -16,11 +16,11 @@ spec:
     metadata:
       labels:
         type: backend
-        ver: test
-        deployment: blue
+        ver: latest
+        deployment: color
     spec:
       containers:
-        - name: senagae-be-test
+        - name: senagae-be-color
           image: senagae/backend:latest
           readinessProbe:
             httpGet:
