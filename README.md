@@ -42,12 +42,16 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/badge/Kubernetes-326CE5?style=flat&logo=Kubernetes&logoColor=blue&color=skyblue"/></a></a>
 &nbsp;&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/badge/Jenkins-D24939?style=flat&logo=jenkins&logoColor=white"/></a></a>
 &nbsp;&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/badge/Slack-4A154B?style=flat&logo=Slack&logoColor=yellow&color=purple"/></a></a>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/badge/vuejs-%2335495e.svg?style=flat&logo=vuedotjs&logoColor=%234FC08D"/></a>
+&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/badge/SpringBoot-181717?style=flat&logo=SpringBoot&logoColor=6DB33F&color=white"></a>
 <br><br>
 
 ---
 ## 🔎 CI/CD 의 기대효과 
 ---
-전통적인 배포 파이프라인은 코드 변경 사항을 커밋-> 코드 통합 -> 빌드 및 테스트 -> 배포 준비 및 배포 -> 모니터링<br>
+전통적인 배포 파이프라인은 코드 변경 사항을 커밋-> 코드 통합 -> 빌드 및 테스트 -> 배포 준비 및 배포 -> 모니터링 방식이었다. <br>
 이렇듯 전통적인 배포 파이프라인은 수동 작업이 많고, 통합의 어려움, 개발자의 오류 리스크를 증가 시켰다.
 
 현대의 CI/CD는 위와 같은 문제점들을 해결함과 동시에 더 빠르고 안정적인 소프트웨어 배포가 가능하다.
@@ -66,7 +70,8 @@
 ## 🌌 운영 환경
 ---
 #### - 클러스터 노드 구성
-💻 Master 1대, 💻 Worker 4대의 클러스터 구성
+💻 Master 1대<br>
+💻 Worker 4대의 클러스터 구성
 
 <br>
 
@@ -75,12 +80,30 @@
 -  프라이빗 클라우드 인프라에서 안정적으로 실행될 수 있는 기능을 제공하여 서비스가 안정적으로 운영되고 개발 및 배포 과정을 더욱 효율적으로 만들어 주었다.
 
 
-### ⚙ 쿠버네티스 선택 이유
+### 쿠버네티스 선택 이유  ⚙ 
+#### 1. Automated Deployment
+    
+    애플리케이션의 자동 배포, 업데이트, 롤백을 지원하므로, 점진적 업데이트를 통해 무중단 배포 수행 가능하다
+    
+#### 2. Scaling and Autoscaling
+    
+    쿠버네티스는 클러스터 내의 리소스를 효율적으로 관리하고, 자동으로 Pod의 수를 조절할 수 있는 오토스케일링 기능으르 제공하므로, 트래픽 변화에 동적으로 대응 가능하다.
+    
+#### 3. Service  and Load Balancing
+    
+     애플리케이션의 컴포넌트 간의 통신을 쉽게 설정하고 관리할 수 있다.
 
 <br>
 
 
-### ⚙ 젠킨스 선택 이유
+### 젠킨스 선택 이유 ⚙ 
+#### 1. CI/CD
+    
+     코드 변경 사항을 자동으로 빌드하고 테스트하는 CI/CD 파이프라인을 쉽게 구성할 수 있는 기능을 제공하여, 배포를 자동화하여 개발 주기를 단축시킨다
+    
+#### 2. Flexibility
+    
+    다양한 빌드 도구와 배포 시스템을 지원하며, 파이프라인을 코드로 정의할 수 있어, 복잡한 배포 프로세스를 자동화하고 버전 관리를 할 수 있다
 
 <br><br>
 
@@ -99,7 +122,10 @@
 
 ## 📣 우리팀의 배포 방식
 ---
-우리팀은 무중단 배포 방식을 선택했는데, 그 중에 Blue/Green 배포 방식을 적용하였다.
+우리팀은 다운 타임이 없는 무중단 배포 방식 중 Blue/Green 배포 방식을 적용하였다.
+### Blue/Green 배포 방식 📘📗
+- 블루그린 배포 방식은 지속적 배포 방식 중 하나로 신 버전을 배포가 완료되면 구 버전을 바라보던 서비스가 신 버전으로 일제히 전환하도록 하는 방식이다.
+- 신속한 업데이트와 동시에 서버 안정성이 좋기 때문에 이 방식을 선택했다.
 <br><br><br>
 
 
