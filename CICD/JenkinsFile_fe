@@ -1,0 +1,65 @@
+pipeline {
+    agent any
+    stages {
+        stage('git clone') {
+                steps {
+                        git branch: 'fe-dev', url: 'https://github.com/beyond-sw-camp/be06-4th-SENAGAE'
+                }
+        }
+        stage('Install Dependencies') {
+            steps {
+                dir('./frontend') {
+                    sh 'npm install'
+                }
+            }
+        }
+        stage('Build') {
+            steps {
+                dir('./frontend') {
+                    sh 'rm -rf ./dist'
+                    sh 'npm run build'
+                }
+            }
+        }
+        stage('Docker Build') {
+            steps {
+                script {
+                    sh 'docker build --tag senagae/frontend:1.$BUILD_ID ./frontend'
+                }
+            }
+        }
+        stage('Docker Push') {
+            steps {
+                script {
+                    sh "docker login -u $DOCKER_ID -p $DOCKER_PW"
+                    sh 'docker push senagae/frontend:1.$BUILD_ID'
+                }
+            }
+        }
+        stage('SSH transfer') {
+            steps {
+                sshPublisher(
+                    continueOnError: false,
+                    failOnError: true,
+                    publishers: [
+                        sshPublisherDesc(
+                            configName: "jenkins-k8s",
+                            verbose: true,
+                            transfers: [
+                                sshTransfer(
+                                    sourceFiles: "CICD/frontend-deployment.yml",
+                                    remoteDirectory: "/home/test/",
+                                    execCommand: '''
+                                        sed -i "s/latest/1.$BUILD_ID/g" CICD/frontend-deployment.yml
+                                        sed -i "s/color/green/g" CICD/frontend-deployment.yml
+                                        kubectl apply -f /home/test/CICD/frontend-deployment.yml
+                                    '''
+                                )
+                            ]
+                        )
+                    ]
+                )
+            }
+        }
+    }
+}
