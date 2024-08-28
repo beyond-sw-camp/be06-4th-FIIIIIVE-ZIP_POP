@@ -47,12 +47,12 @@ pipeline {
                             verbose: true,
                             transfers: [
                                 sshTransfer(
-                                    sourceFiles: "CICD/frontend-deployment.yml",
-                                    remoteDirectory: "/home/test/",
+                                    sourceFiles: "CICD/frontend-deployment.yaml",
+                                    remoteDirectory: "/home/test",
                                     execCommand: '''
-                                        sed -i "s/latest/1.$BUILD_ID/g" CICD/frontend-deployment.yml
-                                        sed -i "s/color/green/g" CICD/frontend-deployment.yml
-                                        kubectl apply -f /home/test/CICD/frontend-deployment.yml
+                                        sed -i "s/latest/1.$BUILD_ID/g" CICD/frontend-deployment.yaml
+                                        sed -i "s/color/green/g" CICD/frontend-deployment.yaml
+                                        kubectl apply -f /home/test/CICD/frontend-deployment.yaml
                                     '''
                                 )
                             ]
