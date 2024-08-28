@@ -105,14 +105,10 @@
 
 <br><br>
 
-<details>
-<summary> 📁시스템 아키텍처 </summary>
-<div markdown="1">
+
+### 📁시스템 아키텍처
   
 ![image](https://github.com/user-attachments/assets/038516d3-c9c5-4e3e-aa4c-c8a531c33629)
-
-</div>
-</details>
 
 <br>
 <br>
