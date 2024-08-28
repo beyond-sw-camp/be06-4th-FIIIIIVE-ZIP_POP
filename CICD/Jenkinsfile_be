@@ -73,8 +73,7 @@ pipeline {
                                         // backend-deployment 야멜 파일 실행
                                         execCommand: """
                                             sed -i "s/latest/1.$BUILD_ID/g" /home/test/CICD/backend-deployment.yaml
-                                            sed -i "s/color/${color}/g" /home/test/CICD/backend-deployment.yaml
-                                            kubectl apply -f /home/test/CICD/backend-deployment.yaml
+                                            bash backend.sh
                                         """
                                     )
                                 ]

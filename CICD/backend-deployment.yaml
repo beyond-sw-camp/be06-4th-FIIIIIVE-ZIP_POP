@@ -2,6 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: senagae-be-deployment-color
+  labels:
+    type: backend
+    deployment: color
 spec:
   selector:
     matchLabels:
