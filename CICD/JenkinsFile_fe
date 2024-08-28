@@ -51,8 +51,7 @@ pipeline {
                                     remoteDirectory: "/home/test",
                                     execCommand: '''
                                         sed -i "s/latest/1.$BUILD_ID/g" CICD/frontend-deployment.yaml
-                                        sed -i "s/color/green/g" CICD/frontend-deployment.yaml
-                                        kubectl apply -f /home/test/CICD/frontend-deployment.yaml
+                                        bash frontend.sh
                                     '''
                                 )
                             ]
