@@ -24,8 +24,8 @@
 ## 🤳 프로젝트 목표
 ---
 #### 1. 운영 중인 환경에 CI/CD 적용
-  -  코드 변경 사항을 자동으로 빌드, 테스트, 배포하여 문제 발생 시 신속한 조치가 가능하도록 함.
-  -  팀원들이 더 쉽게 협업할 수 있고, 서로의 작업이 자동으로 통합되며, 충돌이 최소화되도록 함.
+  -  코드 변경 사항을 자동으로 빌드 및 배포하여 개발에만 집중 할 수 있다.
+  -  서로의 작업이 자동으로 통합되며, 팀원들과 더 쉽게 협업할 수 있다. 
 #### 2. 유연한 배포
   - 무중단 배포 방식인 <Blue-Green 배포 방식> 을 사용하여 서비스 중단 없이 새로운 기능을 배포할 수 있고, 사용자에게 지속적으로 안정적인 서비스를 제공 가능하게 함.
   - 새로운 버전(Green) 배포 후 문제가 발생할 경우, 기존 버전(Blue)으로 빠르게 롤백이 가능하므로 안정적인 롤백이 가능함.
@@ -41,7 +41,6 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=Docker&logoColor=black&color=blue"/></a></a>
 &nbsp;&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/badge/Kubernetes-326CE5?style=flat&logo=Kubernetes&logoColor=blue&color=skyblue"/></a></a>
 &nbsp;&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/badge/Jenkins-D24939?style=flat&logo=jenkins&logoColor=white"/></a></a>
-&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/badge/Slack-4A154B?style=flat&logo=Slack&logoColor=yellow&color=purple"/></a></a>
 <br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/badge/vuejs-%2335495e.svg?style=flat&logo=vuedotjs&logoColor=%234FC08D"/></a>
@@ -51,10 +50,10 @@
 ---
 ## 🔎 CI/CD 의 기대효과 
 ---
-전통적인 배포 파이프라인은 코드 변경 사항을 커밋-> 코드 통합 -> 빌드 및 테스트 -> 배포 준비 및 배포 -> 모니터링 방식이었다. <br>
+전통적인 배포 파이프라인은 코드 변경 사항을 커밋-> 코드 통합 -> 빌드 -> 배포 준비 및 배포 -> 모니터링 방식이었다. <br>
 이렇듯 전통적인 배포 파이프라인은 수동 작업이 많고, 통합의 어려움, 개발자의 오류 리스크를 증가 시켰다.
 
-현대의 CI/CD는 위와 같은 문제점들을 해결함과 동시에 더 빠르고 안정적인 소프트웨어 배포가 가능하다.
+현대의 CI/CD는 위와 같은 문제점들을 보완함과 동시에 더 빠르고 안정적인 소프트웨어 배포가 가능하다.
 
 - #### CI를 통해 애플리케이션 변경 사항이 자동으로 에러 테스트를 거치고, 깃허브 레포지토리에 업로드 됨으로써
 
@@ -72,7 +71,6 @@
 #### - 클러스터 노드 구성
 💻 Master 1대<br>
 💻 Worker 4대의 클러스터 구성
-
 <br>
 
 #### - 쿠버네티스 적용
@@ -134,16 +132,24 @@
 ## 🎞 CI/CD 시나리오
 ---
 
-#### 1. develop branch에서 통합이 이루어지면, github action이 Junit을 통해 작성된 테스트 코드를 실행한다.
+#### 1. github에 be-dev, fe-dev에 최신 버전 프로젝트를 머지
+ a. 최신 버전 코드를 머지하면 이벤트 발생
 
-#### 2. 깃허브(원격 저장소) main branch 에 최신 버전의 프로젝트가 "push" 된다.
+#### 2. github는 젠킨스에게 webhook을 통해서 젠킨스에게 이벤트 전달
 
-#### 3. 깃허브는 젠킨스에게 Webhook을 보낸다.
+#### 3. 젠킨스는 파이프라인에 저장된 절차 실행
+- a. 젠킨스는 github에서 최신 코드를 clone한다.
+- b. 클론된 코드를 기반으로 빌드 작업 수행
+- c. 빌드를 통해 도커 이미지 생성 및 도커 허브에 push
+    
+#### 4. 쿠버네티스 마스터에 SSH 접속 후 쉘스크립트 실행
+  1) 현재 실행 중인 디플로이먼트가 blue라면 green으로 디플로이먼트 생성
+  -    젠킨스에서 도커 허브에 푸쉬한 이미지로 컨테이너 실행
+  2) rollout명령어를 활용하여 생성한 디플로이먼트내의 프로그램이 정상 작동인지 확인
+  3) 정상 작동중이라면 서비스를 신버전 디플로이먼트의 파드들과 연결하도록 수정
+  4) 구버전 디플로이먼트 삭제   
 
-#### 4. 젠킨스는 파이프라인에 저장된 절차를 실행한다.
-
-#### &nbsp;　 a. 젠킨스 서버에 깃허브의 있는 프로젝트를 가져온다. (git clone)
-
+ CI/CD 프로세스와 Blue-Green 배포 방식을 통해 빠르고 안전한 애플리케이션 배포를 가능하게 하며, 쿠버네티스의 기능을 활용하여 확장성 및 복구 능력이 극대화 가능하다.
 
 
 <br>
