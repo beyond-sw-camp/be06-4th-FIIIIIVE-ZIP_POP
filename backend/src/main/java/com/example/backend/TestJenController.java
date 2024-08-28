@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestJenController {
     @GetMapping()
     public String saveTest() {
-        return "Blue";
+        return "Green";
     }
 }
+
