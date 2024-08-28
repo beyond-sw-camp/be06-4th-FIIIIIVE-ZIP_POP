@@ -6,7 +6,6 @@ spec:
   selector:
     matchLabels:
       type: backend
-      ver: latest
       deployment: color
   replicas: 4
   strategy:
@@ -16,7 +15,6 @@ spec:
     metadata:
       labels:
         type: backend
-        ver: latest
         deployment: color
     spec:
       containers:
