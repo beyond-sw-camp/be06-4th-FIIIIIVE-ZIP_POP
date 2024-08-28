@@ -5,11 +5,29 @@
 <br>
 <br>
 
+> 6기 4차 DevOps 프로젝트  
+> 팀 SENAGAE
+
 ## 🎁팀원 소개
 ---
 
-&nbsp;　&nbsp;　&nbsp;　&nbsp;　&nbsp;　&nbsp;　&nbsp;　&nbsp;　  **🐥[김다윤](https://github.com/dyun23)**&nbsp;　  **🦊[김우혁](https://github.com/sue06004)** &nbsp;　  **😼[도지민](https://github.com/jimnyy)** &nbsp;　  **🐰[이가은](https://github.com/dlrkdms125)** &nbsp;　  **🐻[이재룡](https://github.com/ashd89)**
-<br><br>
+<table align="center">
+ <tr>
+    <td align="center"><a href="https://github.com/dyun23"><img src="https://avatars.githubusercontent.com/dyun23" width="150px;" alt=""></td>
+    <td align="center"><a href="https://github.com/sue06004"><img src="https://avatars.githubusercontent.com/sue06004" width="150px;" alt=""></td>
+    <td align="center"><a href="https://github.com/jimnyy"><img src="https://avatars.githubusercontent.com/jimnyy" width="150px;" alt=""></td>
+    <td align="center"><a href="https://github.com/dlrkdms125"><img src="https://avatars.githubusercontent.com/dlrkdms125" width="150px;" alt=""></td>
+    <td align="center"><a href="https://github.com/ashd89"><img src="https://avatars.githubusercontent.com/ashd89" width="150px;" alt=""></td>
+  </tr>
+  <tr>
+    <td align="center">🐥<a href="https://github.com/dyun23"><b>김다윤</b></td>
+    <td align="center">🦊<a href="https://github.com/sue06004"><b>김우혁</b></td>
+    <td align="center">😼<a href="https://github.com/jimnyy"><b>도지민</b></td>
+    <td align="center">🐰<a href="https://github.com/dlrkdms125"><b>이가은</b></td>
+    <td align="center">🐻<a href="https://github.com/ashd89"><b>이재룡</b></td>
+  </tr>
+  </table>
+<br>
 
 
 ### 목차
@@ -154,6 +172,11 @@
 ---
 ## 💻 CI/CD 테스트 및 결과
 ---
+
+
+### 프론트 무중단 버전 변경 배포
+![](https://github.com/user-attachments/assets/88c7b6d2-13f5-40da-8b6e-4ea040a989c5)
+
 <br>
 <br>
 
