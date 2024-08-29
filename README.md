@@ -103,7 +103,7 @@
     
 #### 2. Scaling and Autoscaling
     
- 쿠버네티스는 클러스터 내의 리소스를 효율적으로 관리하고, 자동으로 Pod의 수를 조절할 수 있는 오토스케일링 기능으르 제공하므로, 트래픽 변화에 동적으로 대응 가능하다.
+ 쿠버네티스는 클러스터 내의 리소스를 효율적으로 관리하고, 자동으로 Pod의 수를 조절할 수 있는 오토스케일링 기능을 제공하므로, 트래픽 변화에 동적으로 대응 가능하다.
     
 #### 3. Service  and Load Balancing
     
@@ -186,8 +186,8 @@
 ![](https://github.com/user-attachments/assets/b8d2d959-975c-4892-8406-010534a62ed1)
 
 ### 무중단 배포 (Back - 쉘, Front - 테스트 페이지)
-<img src="https://github.com/user-attachments/assets/25376253-1011-42bc-964f-3daec5e497b9" style="width:500px"></img>
-<img src="https://github.com/user-attachments/assets/88c7b6d2-13f5-40da-8b6e-4ea040a989c5" style="width:450px"></img>
+<img src="https://github.com/user-attachments/assets/25376253-1011-42bc-964f-3daec5e497b9" style="width:400px"></img>
+<img src="https://github.com/user-attachments/assets/88c7b6d2-13f5-40da-8b6e-4ea040a989c5" style="width:350px"></img>
 
 ### 디스코드 알림
 <img width="450" alt="스크린샷 2024-08-29 오후 2 36 56" src="https://github.com/user-attachments/assets/5c524497-12fc-4cad-acd3-ce86fd331641">
