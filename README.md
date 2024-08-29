@@ -173,6 +173,8 @@
 ## 💻 CI/CD 테스트 및 결과
 ---
 
+### 백 무중단 버전 변경 배포
+![](https://github.com/user-attachments/assets/25376253-1011-42bc-964f-3daec5e497b9)
 
 ### 프론트 무중단 버전 변경 배포
 ![](https://github.com/user-attachments/assets/88c7b6d2-13f5-40da-8b6e-4ea040a989c5)
