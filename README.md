@@ -97,7 +97,7 @@
     
 #### 2. Scaling and Autoscaling
     
- 쿠버네티스는 클러스터 내의 리소스를 효율적으로 관리하고, 자동으로 Pod의 수를 조절할 수 있는 오토스케일링 기능으르 제공하므로, 트래픽 변화에 동적으로 대응 가능하다.
+ 쿠버네티스는 클러스터 내의 리소스를 효율적으로 관리하고, 자동으로 Pod의 수를 조절할 수 있는 오토스케일링 기능을 제공하므로, 트래픽 변화에 동적으로 대응 가능하다.
     
 #### 3. Service  and Load Balancing
     
@@ -156,7 +156,12 @@
  - a. 젠킨스에서 도커 허브에 푸쉬한 이미지로 컨테이너 실행
   2) rollout명령어를 활용하여 생성한 디플로이먼트내의 프로그램이 정상 작동인지 확인
   3) 정상 작동중이라면 서비스를 신버전 디플로이먼트의 파드들과 연결하도록 수정
-  4) 구버전 디플로이먼트 삭제   
+  4) 구버전 디플로이먼트 삭제
+
+#### 5. webhook을 통해 Discode에게 파이프라인 결과 전달
+- a. 젠킨스에 설치한 Discode 플러그인을 통해 파이프라인 제목, 결과, 실행 시간이 담긴 Post를 Discode에 보냄
+- b. Discode봇이 데이터를 받아 지정한 Discode 서버에 실행 결과를 전송
+
 
  CI/CD 프로세스와 Blue-Green 배포 방식을 통해 빠르고 안전한 애플리케이션 배포를 가능하게 하며, 쿠버네티스의 기능을 활용하여 확장성 및 복구 능력이 극대화 가능하다.
 
@@ -174,11 +179,14 @@
 ### K8S Blue/Green 배포 
 ![](https://github.com/user-attachments/assets/b8d2d959-975c-4892-8406-010534a62ed1)
 
-### 백 무중단 배포
-![](https://github.com/user-attachments/assets/25376253-1011-42bc-964f-3daec5e497b9)
+### 무중단 배포 (Back - 쉘, Front - 테스트 페이지)
+<img src="https://github.com/user-attachments/assets/25376253-1011-42bc-964f-3daec5e497b9" style="width:400px"></img>
+<img src="https://github.com/user-attachments/assets/88c7b6d2-13f5-40da-8b6e-4ea040a989c5" style="width:350px"></img>
 
-### 프론트 무중단 배포
-![](https://github.com/user-attachments/assets/88c7b6d2-13f5-40da-8b6e-4ea040a989c5)
+### 디스코드 알림
+<img width="450" alt="스크린샷 2024-08-29 오후 2 36 56" src="https://github.com/user-attachments/assets/5c524497-12fc-4cad-acd3-ce86fd331641">
+
+
 
 <br>
 <br>
