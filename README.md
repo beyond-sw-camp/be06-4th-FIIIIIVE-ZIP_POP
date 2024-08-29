@@ -126,7 +126,8 @@
 
 ### 📁시스템 아키텍처
   
-![image](https://github.com/user-attachments/assets/038516d3-c9c5-4e3e-aa4c-c8a531c33629)
+![image](https://github.com/user-attachments/assets/d8f033d6-3e75-4fca-a0b8-d532df8498fd)
+
 
 <br>
 <br>
